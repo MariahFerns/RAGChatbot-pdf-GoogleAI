@@ -18,10 +18,6 @@
 
 # +
 # Import required libraries
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 from PyPDF2 import PdfReader
 import streamlit as st
 import google.generativeai as genai
