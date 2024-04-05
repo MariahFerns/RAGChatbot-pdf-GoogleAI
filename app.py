@@ -21,7 +21,7 @@
 from PyPDF2 import PdfReader
 import streamlit as st
 import google.generativeai as genai
-import os
+# import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain.vectorstores import Chroma
