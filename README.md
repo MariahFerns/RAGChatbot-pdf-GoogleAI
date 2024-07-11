@@ -1,36 +1,45 @@
 # [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ragchatbot-pdf-appai-n2tcrewtz6haszvmqza76g.streamlit.app/)
 
-This is a Document Question Answering app using LangChain, OpenAI and Streamlit. Upload your document and provide more context to LLMs.
 
-### Overview: 
-This app is a sophisticated question-answering (QA) application built using Streamlit, Langchain, and OpenAI's GPT models. This application enables users to upload textual documents and ask questions based on the content of these documents. It utilizes RAG to provide accurate and context-relevant answers.
+This is a powerful Streamlit application designed to extract and analyze text from PDF documents, leveraging the advanced capabilities of Google's Generative AI, specifically the Gemini-PRO model. This tool uses a Retrieval-Augmented Generation (RAG) framework to offer precise, context-aware answers to user queries based on the content of uploaded documents.
 
-### Features Document Upload: 
-Users can upload text documents in .pdf format. Query Processing: After uploading a document, users can input queries or questions to gain insights from the uploaded document. Secure API Key Handling: The app requires an OpenAI API key for processing, ensuring secure and authenticated access to OpenAI's language models. Responsive UI: Built with Streamlit, the app provides an interactive and user-friendly interface. 
+## Features
 
-## Installation and Setup
+- **Instant Insights**: Extracts and analyses text from uploaded PDF documents to provide instant insights.
+- **Retrieval-Augmented Generation**: Utilizes Google's Generative AI model Gemini-PRO for high-quality, contextually relevant answers.
+- **Secure API Key Input**: Ensures secure entry of Google API keys for accessing generative AI models.
 
-To run this on your local machine, follow these steps:
+## Getting Started
 
-### Clone the Repository: 
-Clone this repository to your local machine using git clone.
+### Prerequisites
 
-### Install Dependencies:
+- Google API Key: Obtain a Google API key to interact with Google's Generative AI models. Visit [Google API Key Setup](https://makersuite.google.com/app/apikey) to get your key.
+- Streamlit: This application is built with Streamlit. Ensure you have Streamlit installed in your environment.
 
-Ensure you have Python installed. Install required packages using pip install -r requirements.txt. Set Up OpenAI API Key: You must have an OpenAI API key to use this app. If you don't have one, you can obtain it from OpenAI's website.
+### Installation
 
-### Run the Streamlit App:
+Clone this repository or download the source code to your local machine. Navigate to the application directory and install the required Python packages:
 
-Navigate to the app's directory in your terminal. Run the command streamlit run your_app_script.py. How to Use Start the App: Open the app in your web browser after running the Streamlit command.
+```bash
+pip install -r requirements.txt
+```
 
-- Upload a Document: Click on the file uploader to upload your .txt document.
+### How to Use
+1. Start the Application: Launch the Streamlit application by running the command:
+```bash
+streamlit run <path_to_script.py>
+```
+Replace `<path_to_script.py>` with the path to the script file.
 
-- Enter Your Query: Once the document is uploaded, type in your question in the text input field.
+2. Enter Your Google API Key: Securely enter your Google API key when prompted. This key enables the application to access Google's Generative AI models.
 
-- Enter OpenAI API Key: Provide your OpenAI API key securely in the provided field.
+3. Upload PDF Documents: You can upload one or multiple PDF documents. The application will analyze the content of these documents to respond to queries.
 
-- Submit and Get Answers: Click 'Submit' to process your query. The app will display the answer based on the content of your uploaded document.
+4. Ask Questions: Once your documents are processed, you can ask any question related to the content of your uploaded documents.
 
-Security Note:
+### Technical Overview
+- PDF Processing: Utilizes PyPDF2 for extracting text from PDF documents.
+- Text Chunking: Employs the RecursiveCharacterTextSplitter from LangChain for dividing the extracted text into manageable chunks.
+- Vector Store Creation: Uses FAISS for creating a searchable vector store from text chunks.
+- Answer Generation: Leverages ChatGoogleGenerativeAI from LangChain for generating answers to user queries using the context provided by the uploaded documents.
 
-The app uses text input for OpenAI API key entry, ensuring the key is not stored or logged. Always keep your API keys confidential and never share them publicly.
